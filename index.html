@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+body {
+    background-color: #e2e1e0;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 48px;
+}
+
+.lx-android {
+    margin: 24px auto;
+    border-radius: 3px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lx-android" data-width="300px" data-shadow="4">
+			<img src="http://via.placeholder.com/1080x1920" style="width: 100%; height: 100%;">
+        </div>
+        <div class="lx-android" data-width="200px" data-shadow="2">
+			<img src="http://via.placeholder.com/1080x1920" style="width: 100%; height: 100%;">
+        </div>
+    </div>
+
+    <script>
+
+var androidElements = document.getElementsByClassName('lx-android');
+
+for(android of androidElements){
+var androidWidth = android.dataset.width ? android.dataset.width : android.dataset.height ? parseInt(android.dataset.height, 10)*(9/16) + "px" : "225px";
+var androidHeight = android.dataset.height ? android.dataset.height : android.dataset.width ? parseInt(android.dataset.width, 10)*(16/9) + "px" : "400px";
+
+switch(android.dataset.shadow){
+    case "1":
+        android.style.boxShadow = "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)";
+        break;
+    case "2":
+        android.style.boxShadow = "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)";
+        break;
+    case "3":
+        android.style.boxShadow = "0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)";
+        break;
+    case "4":
+        android.style.boxShadow = "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)";
+        break;
+    case "5":
+        android.style.boxShadow = "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)";
+        break;
+}
+
+android.style.width = androidWidth;
+android.style.height = androidHeight;
+android.style.display = "flex";
+android.style.flexDirection = "column";
+
+var svgWifi = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1rem" viewBox="0 0 24 24" width="1.2rem"> <path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/> <path d="M0 0h24v24H0z" fill="none"/> </svg>';
+var svgCell = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1rem" viewBox="0 0 24 24" width="1.2rem"> <path d="M2 22h20V2z"/> <path d="M0 0h24v24H0z" fill="none"/> </svg>';
+var svgBattery = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1rem" viewBox="0 0 24 24" width="1.2rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/> </svg>';
+var svgBack = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1.3rem" viewBox="0 0 24 24" width="1.3rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/> </svg>';
+var svgHome = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1.1rem" viewBox="0 0 24 24" width="1.1rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/> </svg>';
+var svgMenu = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1.4rem" viewBox="0 0 24 24" width="1.4rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z"/> </svg>';
+
+var statusBar = '<div style="border-top-left-radius: inherit; border-top-right-radius: inherit; background-color: #13171a; color: white; font-family: \'Roboto\', sans-serif; height: 1.5rem; font-size: 0.85rem; display: flex; justify-content: flex-end; align-items: center;">' + svgWifi + svgCell + svgBattery + '<span class="lx-time" style="padding: 0 0.4rem 0 0.1rem;"></span></div>';
+var navBar = '<div style="padding: 0 1rem; background-color: #13171a; display: flex; justify-content: space-around; height: 1.8rem; align-items: center; border-bottom-right-radius: inherit; border-bottom-left-radius: inherit;">' + svgBack + svgHome + svgMenu + '</div>';
+android.innerHTML = statusBar + '<div style="flex: 1; background-color: white; width:100%; height: 100%; overflow: auto;">' + android.innerHTML + "</div>" + navBar;
+}
+
+var t;
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    m = checkTime(m);
+    var clocks = document.getElementsByClassName('lx-time');
+    for(clock of clocks){
+        clock.innerHTML = h + ":" + m;
+    }
+    t = setTimeout(function () {
+        startTime();
+    }, 20 * 1000);
+}
+startTime();
+
+document.write('<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">');
+    </script>
+</body>
+</html>
