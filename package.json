@@ -1,6 +1,6 @@
 {
   "name": "lx-devices",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Customizable and easy to use IOS, Android and OSX device frames in one line of HTML!",
   "main": "lx-devices.js",
   "scripts": {
