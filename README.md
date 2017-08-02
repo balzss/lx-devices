@@ -25,7 +25,7 @@ npm install lx-devices
 <div class="lx-android" data-width="225px" data-height="400px" data-shadow="3"></div>
 ```
 - Where the classname should be `lx-android`, `lx-ios` or `lx-osx` based on your needs
-- *Every data attribute is optional*
+- **Every data attribute is optional**
 - The shadow attribute accepts numbers 1 to 5 and sets a material shadow [according to this](https://codepen.io/sdthornton/pen/wBZdXq)
 - If you only set the height or only the width the other value will be 16/9 or 3/2 proportion to that. (for Android/IOS
   and OSX relatively)
