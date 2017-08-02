@@ -2,100 +2,268 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>lx-devices.js</title>
+    <link rel="icon" href="./favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto" rel="stylesheet">
     <style>
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
 body {
     background-color: #e2e1e0;
-}
-.container {
-    max-width: 900px;
-    margin: auto;
-    margin-top: 48px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    line-height: 1.6rem;
 }
 
-.lx-android {
-    margin: 24px auto;
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 18px 0;
+}
+xmp {
+    margin: 0;
+}
+xmp.code {
+    margin: 0.4rem 0;
+    background-color: #f5f5f5;
+    padding: 2px 8px;
+    border-left: 4px solid #777;
+    overflow: auto;
+}
+
+#container {
+    overflow: hidden;
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: margin-left 0.45s ease;
+    justify-content: space-around;
+}
+.innerContainer {
+    max-width: 900px;
+    height: 100%;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu {
+    max-width: 600px;
+    margin: 24px auto 32px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu button:hover, .menu button.active {
+    opacity: 1;
+    font-weight: 400;
+}
+.menu button {
+    font-weight: 300;
+    border: none;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-size: inherit;
+    text-decoration: underline;
+    background-color: inherit;
+    opacity: 0.4;
+}
+
+.lx-ios .lx-screen, .lx-android .lx-screen{
+    background-color: #aaa;
+}
+.lx-ios, .lx-android {
     border-radius: 3px;
 }
+
+.lx-osx > div {
+    background-color: white;
+}
+.lx-osx {
+    border-radius: 5px;
+    margin: 0 100px;
+}
+.description h3 {
+    margin: 0;
+}
+.description {
+    width: 60%;
+}
+.opac {
+    opacity: 0.5;
+}
+
+.osx-desktop .description{
+    padding: 8px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gh-link:hover {
+    opacity: 1;
+}
+
+.gh-link {
+    color: rebeccapurple;
+    opacity: 0.7;
+}
+
+
+@media screen and (max-width: 900px) {
+    body, html {
+        overflow: auto;
+    }
+    .title {
+        width: 90%;
+            margin: 24px auto;
+    }
+    .menu {
+        display: none;
+    }
+    .description {
+        width: 90%;
+        margin: 18px auto;
+        word-wrap: break-word;
+    }
+
+    #container {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+    .lx-android, .lx-ios, .lx-osx {
+        margin: 0 auto;
+    }
+
+    .innerContainer {
+        flex-direction: column;
+    }
+    .osx-mobile {
+        display: block !important;
+    }
+    .osx-desktop {
+        display: none !important;
+    }
+    .mobile-title {
+        display: block !important;
+        text-align: center;
+    }
+}
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="lx-android" data-width="300px" data-shadow="4">
-			<img src="http://via.placeholder.com/1080x1920" style="width: 100%; height: 100%;">
+    <div class="title">
+        <h1>lx-devices<span class="opac">.js &nbsp;</span><a href="https://github.com/balzss/lx-devices" class="gh-link"><i class="fa fa-github" aria-hidden="true"></i></a></h1>
+        <div class="opac">Customizable and easy to use IOS, Android and OSX device frames in one line of HTML!  </div>
+    </div>
+    <div class="menu">
+        <button class="menuBtn active" onclick="shift(0)">Android</button>
+        <button class="menuBtn" onclick="shift(1)">IOS</button>
+        <button class="menuBtn" onclick="shift(2)">OSX</button>
+    </div>
+    <div id="container">
+        <div class="innerContainer">
+            <h2 style="display: none" class="mobile-title">Android:</h2>
+            <div class="lx-android" data-width="240px" data-shadow="3"></div>
+            <div class="description">
+                <h3>Get going in 20 seconds:</h3>
+                <ul>
+                    <li>Download with npm or CDN</li>
+                    <xmp class="code">npm install lx-devices</xmp>
+                    <xmp class="code"><link rel="stylesheet" href="https://cdn.rawgit.com/balzss/luxbar/ae5835e2/build/luxbar.min.css"></xmp>
+                    <li>Include it in your html:</li>
+                    <xmp class="code"><div class="lx-android" data-width="225px" 
+    data-height="400px" data-shadow="3"></div></xmp>
+                    <li>Every data attribute is optional</li>
+                    <li>If you only set the height or the width the other will be 16/9 proportion to it</li>
+                    <li>The shadow option accepts numbers 1-5 and sets a material box shadow accordingly</li>
+                    <li><a class="gh-link" href="https://github.com/balzss/lx-devices">More info at GitHub</a></li>
+                </ul>
+                <hr class="osx-mobile" style="display: none">
+            </div>
         </div>
-        <div class="lx-android" data-width="200px" data-shadow="2">
-			<img src="http://via.placeholder.com/1080x1920" style="width: 100%; height: 100%;">
+        <div class="innerContainer">
+            <h2 style="display: none" class="mobile-title">IOS:</h2>
+            <div class="lx-ios" data-width="240px" data-shadow="3"></div>
+            <div class="description">
+                <h3>Get going in 20 seconds:</h3>
+                <ul>
+                    <li>Download with npm or CDN</li>
+                    <xmp class="code">npm install lx-devices</xmp>
+                    <xmp class="code"><link rel="stylesheet" href="https://cdn.rawgit.com/balzss/luxbar/ae5835e2/build/luxbar.min.css"></xmp>
+                    <li>Include it in your html:</li>
+                    <xmp class="code"><div class="lx-android" data-width="225px" 
+    data-height="400px" data-shadow="3"></div></xmp>
+                    <li>Every data attribute is optional</li>
+                    <li>If you only set the height or the width the other will be 16/9 proportion to it</li>
+                    <li>The shadow option accepts numbers 1-5 and sets a material box shadow accordingly</li>
+                    <li><a class="gh-link" href="https://github.com/balzss/lx-devices">More info at GitHub</a></li>
+                </ul>
+                <hr class="osx-mobile" style="display: none">
+            </div>
+        </div>
+        <div class="innerContainer">
+            <h2 style="display: none" class="mobile-title">OSX:</h2>
+            <div class="lx-osx osx-desktop" data-width="900px" data-height="430px" data-shadow="3" data-title="instructions.html">
+            <div class="description">
+                <h3>Get going in 20 seconds:</h3>
+                <ul>
+                    <li>Download with npm or CDN</li>
+                    <xmp class="code">npm install lx-devices</xmp>
+                    <xmp class="code"><link rel="stylesheet" href="https://cdn.rawgit.com/balzss/luxbar/ae5835e2/build/luxbar.min.css"></xmp>
+                    <li>Include it in your html:</li>
+                    <xmp class="code"><div class="lx-osx" data-title="instructions.html" data-shadow="3" 
+    data-height="400px" data-width="225px"></div></xmp>
+                    <li>Every data attribute is optional</li>
+                    <li>If you only set the height or the width the other will be 16/9 proportion to it</li>
+                    <li>The shadow option accepts numbers 1-5 and sets a material box shadow accordingly</li>
+                    <li><a class="gh-link" href="https://github.com/balzss/lx-devices">More info at GitHub</a></li>
+                </ul>
+            </div>
+            
+            
+            </div>
+            <div class="osx-mobile" style="display: none">
+                <div class="lx-osx" data-width="90%" data-height="200px"  data-title="title.txt" data-shadow="3" ></div>
+            <div class="description">
+                    <li>Download with npm or CDN</li>
+                    <xmp>npm install lx-devices</xmp>
+                    <xmp class="code"><link rel="stylesheet" href="https://cdn.rawgit.com/balzss/luxbar/ae5835e2/build/luxbar.min.css"></xmp>
+                    <li>Include it in your html:</li>
+                    <xmp class="code"><div class="lx-osx" data-title="instructions.html" data-shadow="3" 
+    data-height="400px" data-width="225px"></div></xmp>
+                    <li>Every data attribute is optional</li>
+                    <li>If you only set the height or the width the other will be 16/9 proportion to it</li>
+                    <li>The shadow option accepts numbers 1-5 and sets a material box shadow accordingly</li>
+                    <li><a class="gh-link" href="https://github.com/balzss/lx-devices">More info at GitHub</a></li>
+            </div>
+            </div>
         </div>
     </div>
 
+    <script src="./script.js"></script>
     <script>
-
-var androidElements = document.getElementsByClassName('lx-android');
-
-for(android of androidElements){
-var androidWidth = android.dataset.width ? android.dataset.width : android.dataset.height ? parseInt(android.dataset.height, 10)*(9/16) + "px" : "225px";
-var androidHeight = android.dataset.height ? android.dataset.height : android.dataset.width ? parseInt(android.dataset.width, 10)*(16/9) + "px" : "400px";
-
-switch(android.dataset.shadow){
-    case "1":
-        android.style.boxShadow = "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)";
-        break;
-    case "2":
-        android.style.boxShadow = "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)";
-        break;
-    case "3":
-        android.style.boxShadow = "0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)";
-        break;
-    case "4":
-        android.style.boxShadow = "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)";
-        break;
-    case "5":
-        android.style.boxShadow = "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)";
-        break;
+function shift(x){
+    var b = document.getElementsByClassName('menuBtn');
+    for (var i = 0; i < b.length; i++)
+        b[i].classList.remove('active');
+    b[x].classList.add('active');
+    var container = document.getElementById('container');
+    container.style.marginLeft = '-' + x + '00%';
 }
-
-android.style.width = androidWidth;
-android.style.height = androidHeight;
-android.style.display = "flex";
-android.style.flexDirection = "column";
-
-var svgWifi = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1rem" viewBox="0 0 24 24" width="1.2rem"> <path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/> <path d="M0 0h24v24H0z" fill="none"/> </svg>';
-var svgCell = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1rem" viewBox="0 0 24 24" width="1.2rem"> <path d="M2 22h20V2z"/> <path d="M0 0h24v24H0z" fill="none"/> </svg>';
-var svgBattery = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1rem" viewBox="0 0 24 24" width="1.2rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/> </svg>';
-var svgBack = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1.3rem" viewBox="0 0 24 24" width="1.3rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/> </svg>';
-var svgHome = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1.1rem" viewBox="0 0 24 24" width="1.1rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/> </svg>';
-var svgMenu = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1.4rem" viewBox="0 0 24 24" width="1.4rem"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z"/> </svg>';
-
-var statusBar = '<div style="border-top-left-radius: inherit; border-top-right-radius: inherit; background-color: #13171a; color: white; font-family: \'Roboto\', sans-serif; height: 1.5rem; font-size: 0.85rem; display: flex; justify-content: flex-end; align-items: center;">' + svgWifi + svgCell + svgBattery + '<span class="lx-time" style="padding: 0 0.4rem 0 0.1rem;"></span></div>';
-var navBar = '<div style="padding: 0 1rem; background-color: #13171a; display: flex; justify-content: space-around; height: 1.8rem; align-items: center; border-bottom-right-radius: inherit; border-bottom-left-radius: inherit;">' + svgBack + svgHome + svgMenu + '</div>';
-android.innerHTML = statusBar + '<div style="flex: 1; background-color: white; width:100%; height: 100%; overflow: auto;">' + android.innerHTML + "</div>" + navBar;
-}
-
-var t;
-function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    m = checkTime(m);
-    var clocks = document.getElementsByClassName('lx-time');
-    for(clock of clocks){
-        clock.innerHTML = h + ":" + m;
-    }
-    t = setTimeout(function () {
-        startTime();
-    }, 20 * 1000);
-}
-startTime();
-
-document.write('<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">');
     </script>
 </body>
 </html>
