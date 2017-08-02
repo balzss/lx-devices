@@ -2,19 +2,19 @@
 Customizable and easy to use IOS, Android and OSX device frames in one line of HTML!
 
 ## How it looks
-![Imgur](http://i.imgur.com/Vn2mdP7.png)
+![Imgur](http://i.imgur.com/seSABLA.png)
 
 ## Features
 - Easy to use, easy to customize
 - No icon font dependency, every icon is included as SVG
 - Multiple builtin box shadow
 - Working clock in the topbar
-- Lightweight: less than 3KB minified and gzipped
+- Lightweight: ~3KB minified and gzipped
 
 ## How to use it
 - Download with npm or CDN:
 ```npm install lx-devices```
-```cdnlink```
+```<link rel="stylesheet" href="https://cdn.rawgit.com/balzss/lx-devices/2e0606ed/dist/lx-devices.min.js">```
 
 - Include it in your html:
 ``` html
@@ -22,7 +22,7 @@ Customizable and easy to use IOS, Android and OSX device frames in one line of H
 ```
 - Where the classname should be `lx-android`, `lx-ios` or `lx-osx` based on your needs
 - *Every data attribute is optional*
-- The shadow attribute accepts numbers 1 to 5 and sets a material shadow [according to this]()
+- The shadow attribute accepts numbers 1 to 5 and sets a material shadow [according to this](https://codepen.io/sdthornton/pen/wBZdXq)
 - If you only set the height or only the width the other value will be 16/9 or 3/2 proportion to that. (for Android/IOS
   and OSX relatively)
 - If you don't provide neither width nor height attribute itt will set to 225px width and 400px height for Android/IOS
