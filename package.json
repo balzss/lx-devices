@@ -4,7 +4,8 @@
   "description": "Customizable and easy to use IOS, Android and OSX device frames in one line of HTML!",
   "main": "lx-devices.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs src/lx-devices.js --output dist/lx-devices.min.js && cp src/lx-devices.js dist/lx-devices.js"
   },
   "repository": {
     "type": "git",

@@ -21,11 +21,11 @@ function getTopbar(inner, bgColor, color, justifyContent){
 }
 
 function getBottombar(){
-    var svgBack = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="20px" viewBox="0 0 24 24" width="20px"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/> </svg>';
+    var svgBack2 = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="20px" viewBox="0 0 24 24" width="20px"> <g transform="rotate(270 12 12)"> <path d="M12 7.77L18.39 18H5.61L12 7.77M12 4L2 20h20L12 4z"/> <path d="M0 0h24v24H0V0z" fill="none"/> </g> </svg>';
     var svgHome = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="18px" viewBox="0 0 24 24" width="18px"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/> </svg>';
     var svgMenu = '<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="22px" viewBox="0 0 24 24" width="22px"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z"/> </svg>';
 
-    return '<div class="lx-bottombar" style="padding: 0 1rem; background-color: #13171a; display: flex; justify-content: space-around; height: 1.8rem; align-items: center; border-bottom-right-radius: inherit; border-bottom-left-radius: inherit;">' + svgBack + svgHome + svgMenu + '</div>';
+    return '<div class="lx-bottombar" style="padding: 0 1rem; background-color: #13171a; display: flex; justify-content: space-around; height: 1.8rem; align-items: center; border-bottom-right-radius: inherit; border-bottom-left-radius: inherit;">' + svgBack2 + svgHome + svgMenu + '</div>';
 }
 
 function getScreen(inner, isBottomRounded){
