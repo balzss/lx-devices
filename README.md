@@ -1,5 +1,7 @@
 # lx-devices.js
 Customizable and easy to use IOS, Android and OSX device frames in one line of HTML!
+
+## How it looks
 ![Imgur](http://i.imgur.com/Vn2mdP7.png)
 
 ## Features
@@ -11,8 +13,8 @@ Customizable and easy to use IOS, Android and OSX device frames in one line of H
 
 ## How to use it
 - Download with npm or CDN:
-`npm install lx-devices`
-`cdnlink`
+```npm install lx-devices```
+```cdnlink```
 
 - Include it in your html:
 ``` html
