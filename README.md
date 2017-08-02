@@ -17,7 +17,7 @@ Customizable and easy to use IOS, Android and OSX device frames in one line of H
 npm install lx-devices
 ```
 ```
-<link rel="stylesheet" href="https://cdn.rawgit.com/balzss/lx-devices/2e0606ed/dist/lx-devices.min.js">
+<script src="https://cdn.rawgit.com/balzss/lx-devices/2e0606ed/dist/lx-devices.min.js"></script>
 ```
 
 - Include it in your html:
