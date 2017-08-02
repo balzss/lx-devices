@@ -1,0 +1,27 @@
+{
+  "name": "lx-devices",
+  "version": "1.0.0",
+  "description": "Customizable and easy to use IOS, Android and OSX device frames in one line of HTML!",
+  "main": "lx-devices.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balzss/lx-devices.git"
+  },
+  "keywords": [
+    "device",
+    "mobile",
+    "android",
+    "osx",
+    "ios",
+    "html"
+  ],
+  "author": "Balazs Saros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balzss/lx-devices/issues"
+  },
+  "homepage": "https://github.com/balzss/lx-devices#readme"
+}

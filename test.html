@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+body {
+    background-color: #e2e1e0;
+}
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 56px;
+}
+.lx-ios .lx-screen, .lx-android .lx-screen{
+    background-color: #aaa;
+}
+.lx-ios, .lx-android {
+    border-radius: 3px;
+}
+
+.lx-osx > div {
+    background-color: white;
+}
+.lx-osx {
+    border-radius: 5px;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="lx-android" data-height="430px" data-shadow="3"></div>
+        <div class="lx-ios" data-height="430px" data-shadow="3"></div>
+        <div class="lx-osx" data-height="430px" data-shadow="3" data-title="title.txt"></div>
+    </div>
+    <script src="lx-devices.js"></script>
+</body>
+</html>

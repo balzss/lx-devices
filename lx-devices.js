@@ -28,8 +28,9 @@ function getBottombar(){
     return '<div class="lx-bottombar" style="padding: 0 1rem; background-color: #13171a; display: flex; justify-content: space-around; height: 1.8rem; align-items: center; border-bottom-right-radius: inherit; border-bottom-left-radius: inherit;">' + svgBack + svgHome + svgMenu + '</div>';
 }
 
-function getScreen(inner){
-    return '<div class="lx-screen" style="flex: 1; width:100%; height: 100%; overflow: auto;">' + inner + '</div>';
+function getScreen(inner, isBottomRounded){
+    var rounded = isBottomRounded ? 'border-bottom-left-radius: inherit; border-bottom-right-radius: inherit;' : '';
+    return '<div class="lx-screen" style="flex: 1; width:100%; height: 100%; overflow: auto;' + rounded + '">' + inner + '</div>';
 }
 
 function getAndroidIcons(){
@@ -78,7 +79,7 @@ for(var i = 0; i < android.length; i++){
     android[i].style.width = getWidth(android[i].dataset.width, android[i].dataset.height, 9/16, "225px");
     android[i].style.height = getHeight(android[i].dataset.width, android[i].dataset.height, 16/9, "400px");
     var topbar = getTopbar(getAndroidIcons() + TIME, '#13171a', 'white', 'flex-end');
-    android[i].innerHTML = topbar + getScreen(android[i].innerHTML) + getBottombar();
+    android[i].innerHTML = topbar + getScreen(android[i].innerHTML, false) + getBottombar();
 }
 
 for(var i = 0; i < ios.length; i++){
@@ -87,17 +88,17 @@ for(var i = 0; i < ios.length; i++){
     ios[i].style.width = getWidth(ios[i].dataset.width, ios[i].dataset.height, 9/16, "225px");
     ios[i].style.height = getHeight(ios[i].dataset.width, ios[i].dataset.height, 16/9, "400px");
     var topbar = getTopbar(iosTopleft + TIME + iosTopright, '#f7f7f7', 'black', 'space-between');
-    ios[i].innerHTML =  topbar + getScreen(ios[i].innerHTML);
+    ios[i].innerHTML =  topbar + getScreen(ios[i].innerHTML, true);
 }
 
 for(var i = 0; i < osx.length; i++){
     generalOperation(osx[i]);
 
-    osx[i].style.width = getWidth(osx[i].dataset.width, osx[i].dataset.height, 3/2, "400px");
-    osx[i].style.height = getHeight(osx[i].dataset.width, osx[i].dataset.height, 2/3, "225px");
-    var osxTitle = '<span style="margin-left: -3rem">' + osx[i].dataset.title + '</span>' ? osx[i].dataset.title : '';
+    osx[i].style.width = getWidth(osx[i].dataset.width, osx[i].dataset.height, 3/2, "480px");
+    osx[i].style.height = getHeight(osx[i].dataset.width, osx[i].dataset.height, 2/3, "320px");
+    var osxTitle = osx[i].dataset.title ? '<span style="margin-left: -3rem">' + osx[i].dataset.title + '</span>' : '';
     var topbar = getTopbar(osxIcons + osxTitle + '<span></span>', '#f0f0f5', 'black', 'space-between');
-    osx[i].innerHTML = topbar + getScreen(osx[i].innerHTML);
+    osx[i].innerHTML = topbar + getScreen(osx[i].innerHTML, true);
 }
 
 function checkTime(i) {
